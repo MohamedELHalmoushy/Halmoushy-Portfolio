@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Ayman El-Halmoushy | Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #212529;
+            --card-bg: #f8f9fa;
+            --heading-color: #0d1b2a;
+            --accent-color: #1b98e0;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0d1b2a;
+            --text-color: #eaeaea;
+            --card-bg: #1b263b;
+            --heading-color: #ffffff;
+            --accent-color: #1b98e0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            color: var(--heading-color);
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .navbar {
+            background-color: var(--card-bg);
+            transition: background 0.3s;
+        }
+
+        .navbar a {
+            color: var(--text-color) !important;
+            font-weight: 500;
+        }
+
+        .navbar .btn {
+            font-size: 0.85rem;
+        }
+
+        .hero {
+            background: linear-gradient(to right, #197ce5, #1b263b);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            padding: 60px 20px;
+        }
+
+        .hero img {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .hero .btn-custom {
+            background: var(--accent-color);
+            color: white;
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+        .hero .btn-custom:hover {
+            background: #ffffff;
+        }
+
+        .card {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h5 {
+            color: var(--heading-color);
+            font-weight: bold;
+        }
+
+        .alt-bg {
+            background-color: var(--card-bg);
+        }
+
+        footer {
+            background: var(--card-bg);
+            color: var(--text-color);
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        li {
+            color: var(--text-color) !important;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-color) !important;
+        }
+
+        #skills i {
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        /* Contact Section Styling */
+        .contact-form {
+            background: var(--bg-color);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            padding: 12px;
+            font-size: 0.95rem;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(27, 152, 224, 0.3);
+            outline: none;
+        }
+
+        .contact-form button {
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info i {
+            margin-bottom: 8px;
+        }
+
+        .contact-info a {
+            color: var(--text-color) !important;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color) !important;
+        }
+    </style>
+</head>
+
+<body data-theme="light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about" data-en="About" data-ar="عنّي">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education" data-en="Education"
+                            data-ar="التعليم">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience" data-en="Experience"
+                            data-ar="الخبرات">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects" data-en="Projects"
+                            data-ar="المشاريع">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" data-en="Skills"
+                            data-ar="المهارات">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications" data-en="Certifications"
+                            data-ar="الشهادات">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-en="Contact"
+                            data-ar="تواصل">Contact</a></li>
+                </ul>
+                <button class="btn btn-sm btn-light ms-2" id="langBtn">AR</button>
+                <button class="btn btn-sm btn-warning ms-2" id="themeBtn">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <img src="assets/mohamed.jpeg" alt="My Photo">
+        <h1 data-en="Mohamed Ayman El-Halmoushy" data-ar="محمد أيمن الحلموشي">Mohamed Ayman El-Halmoushy</h1>
+        <p data-en="ML & Intelligent Systems Engineer" data-ar="مهندس نظم ذكية وذكاء اصطناعي">ML & Intelligent Systems
+            Engineer</p>
+        <div class="mt-3">
+            <a href="mailto:mohamedaymanelhalmoushy@gmail.com" class="btn btn-custom me-2"><i
+                    class="fa-solid fa-envelope"></i> Hire Me</a>
+            <a href="https://github.com/MohamedELHalmoushy" target="_blank" class="btn btn-outline-light"><i
+                    class="fab fa-github"></i> GitHub</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container text-center">
+        <h2 data-en="About Me" data-ar="عنّي">About Me</h2>
+        <p data-en="I am an Intelligent Systems Engineering student (Ranked 1st, GPA 3.79) at Helwan University, passionate about AI, Computer Vision, and Robotics. What sets me apart is my ability to combine AI expertise with hands-on embedded systems and communication systems experience, enabling me to build intelligent, real-world solutions that bridge software and hardware."
+            data-ar="أنا طالب هندسة نظم ذكية (الأول على الدفعة بتقدير 3.79) بجامعة حلوان، شغوف بالذكاء الاصطناعي، رؤية الكمبيوتر، والروبوتات. ما يميزني هو قدرتي على الجمع بين خبرة الذكاء الاصطناعي والخبرة العملية في الأنظمة المدمجة وأنظمة الاتصالات، مما يمنحني القدرة على بناء حلول ذكية متكاملة تربط بين السوفت وير والهارد وير.">
+            I am an <strong>Intelligent Systems Engineering student (Ranked 1st, GPA 3.79)</strong> at Helwan
+            University,
+            passionate about <strong>AI, Computer Vision, and Robotics</strong>.
+            What sets me apart is my ability to combine <strong>AI expertise with hands-on embedded systems and
+                communication systems experience</strong>,
+            enabling me to build intelligent, real-world solutions that bridge software and hardware.
+        </p>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="alt-bg">
+        <div class="container text-center">
+            <h2 data-en="Education" data-ar="التعليم">Education</h2>
+            <div class="card p-4 mt-3">
+                <h5>B.Sc. Intelligent Systems Engineering</h5>
+                <p data-en="Helwan National University – Cairo (Expected 2027)"
+                    data-ar="جامعة حلوان – القاهرة (متوقع 2027)">Helwan National University – Cairo (Expected 2027)</p>
+                <p><strong>CGPA:</strong> 3.79 (First Rank)</p>
+            </div>
+        </div>
+    </section>
+    <!-- Experience -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="text-center mb-4" data-en="Experience" data-ar="الخبرات">Experience</h2>
+            <div class="row g-4">
+
+                <!-- Experience 1 -->
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h5>AI Intern - Telecom Egypt (2024)</h5>
+                        <ul>
+                            <li>Improved YOLOv8 accuracy from 80% → 98%</li>
+                            <li>Optimized ML pipelines (40% faster)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h5>Communication Systems Intern - Telecom Egypt (2024)</h5>
+                        <ul>
+                            <li>Worked on Optical Fiber, SDH & DWDM Networks</li>
+                            <li>Fixed 50+ faults → 99.8% uptime</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h5>DEPI – Microsoft Machine Learning Engineering</h5>
+                        <ul>
+                            <li>Completed professional training in ML engineering with Microsoft.</li>
+                            <li>Focused on supervised/unsupervised learning, pipelines, and deployment.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 4 -->
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h5>NTI – Huawei HCIA Training</h5>
+                        <ul>
+                            <li>Huawei Certified ICT Associate (AI) Program.</li>
+                            <li> covered fundamentals of AI & ML with real projects.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 5 -->
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h5>NTI – IoT Engineer Internships</h5>
+                        <ul>
+                            <li>Worked on IoT projects integrating sensors, cloud, and embedded systems.</li>
+                            <li>Gained experience with Arduino, Raspberry Pi, and cloud platforms.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 6 -->
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h5>NTI – Web Designer (3 months)</h5>
+                        <ul>
+                            <li>Completed intensive web design training.</li>
+                            <li>Built responsive websites using HTML, CSS, Bootstrap, and JavaScript.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 7 -->
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h5>ITI – IoT Developer Internship</h5>
+                        <ul>
+                            <li>Focused on IoT system design and implementation.</li>
+                            <li>Developed smart applications combining hardware + cloud integration.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects" class="alt-bg">
+        <div class="container">
+            <h2 class="text-center mb-4" data-en="Projects" data-ar="المشاريع">Projects</h2>
+            <div class="row g-4">
+
+                <!-- Project 1 -->
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <img src="assets/p1.webp" class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <h5 class="card-title">Real-Time Object Detection</h5>
+                            <p class="card-text">SSD model with OpenCV & TensorFlow (30% faster inference).</p>
+                            <a href="https://github.com/MohamedELHalmoushy/SSD-Live-webcam"
+                                class="btn btn-sm btn-dark">GitHub</a>
+                            <a href="https://www.linkedin.com/posts/mohamed-el-halmoushy_ai-artificialintelligence-machinelearning-activity-7292799135286472704-A4tS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEqblPYBZXhcY45sLW0JisHMYEnOj4aYzWk"
+                                class="btn btn-sm btn-primary">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <img src="assets/p2.png" class="card-img-top" alt="Car Detection">
+                        <div class="card-body">
+                            <h5 class="card-title">Car Detection, Segmentation & Counting (YOLOv8)</h5>
+                            <p class="card-text">
+                                AI system to detect, segment, and count cars in Tahrir Square videos using YOLOv8.
+                                Output: real-time detection + counting overlay.
+                            </p>
+                            <a href="https://www.kaggle.com/code/mohamedayman2004/fork-of-fork-of-mask-rcnn-with-videos-final"
+                                class="btn btn-sm btn-dark">GitHub</a>
+                            <a href="https://www.linkedin.com/posts/mohamed-el-halmoushy_intelligentsystems-ai-radardetection-activity-7228871447924916224-0eN1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEqblPYBZXhcY45sLW0JisHMYEnOj4aYzWk"
+                                class="btn btn-sm btn-primary">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <img src="assets/p3.png" class="card-img-top" alt="Web Scraping">
+                        <div class="card-body">
+                            <h5 class="card-title">Restaurant Menu Scraper (Selenium)</h5>
+                            <p class="card-text">
+                                Python automation for scraping menus across multiple restaurants.
+                                ✔ Branch-specific data
+                                ✔ CSV output
+                                ✔ Competitor price monitoring
+                            </p>
+                            <a href="https://github.com/MohamedELHalmoushy/scraping-menus--food"
+                                class="btn btn-sm btn-dark" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/posts/mohamed-el-halmoushy_automated-web-scraping-activity-7361358410388267008-Lwu3?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEqblPYBZXhcY45sLW0JisHMYEnOj4aYzWk"
+                                class="btn btn-sm btn-primary">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <img src="assets/p4.png" class="card-img-top" alt="AI Learning Style App">
+                        <div class="card-body">
+                            <h5 class="card-title">Learning Style AI App (Team Project)</h5>
+                            <p class="card-text">
+                                Flutter + AI app predicting students’ learning styles (Visual, Auditory, Kinesthetic).
+                                My role: Built the full mobile app, UI/UX, integrated AI model (XGBoost).
+                            </p>
+                            <a href="https://github.com/omar7amed/AI-Learning-Style-Prediction-App" target="_blank"
+                                class="btn btn-sm btn-dark">GitHub</a>
+                            <a href="https://www.linkedin.com/posts/omar7amed_flutter-ai-machinelearning-activity-7353129534738640897--Iu0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEqblPYBZXhcY45sLW0JisHMYEnOj4aYzWk"
+                                class="btn btn-sm btn-primary">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <img src="assets/p5.png" class="card-img-top" alt="Style Transfer">
+                        <div class="card-body">
+                            <h5 class="card-title">AI Style Transfer (Huawei ETA Program)</h5>
+                            <p class="card-text">
+                                Built a 4K Style Transfer app using Google AST v1 + OpenCV.
+                                Input: Photo + Style → Output: High-quality stylized image.
+                                Achieved 98.5% final program score + Huawei HCIA-AI (987/1000).
+                            </p>
+                            <a href="https://www.kaggle.com/code/omarmohamed1w1/ai-style-transfer"
+                                class="btn btn-sm btn-dark">GitHub</a>
+                            <a href="https://www.linkedin.com/posts/omar-mohamed-fathallah-59912b335_ai-machinelearning-deeplearning-activity-7366153172278484993-zNb6?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEqblPYBZXhcY45sLW0JisHMYEnOj4aYzWk"
+                                class="btn btn-sm btn-primary">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="text-center mb-4" data-en="Skills" data-ar="المهارات">Skills</h2>
+            <div class="row text-center g-4">
+
+                <!-- Programming -->
+                <div class="col-md-3">
+                    <i class="fa-solid fa-code fa-2x"></i>
+                    <p><strong>Programming</strong><br>Python, C++, SQL, JavaScript</p>
+                </div>
+
+                <!-- AI & ML -->
+                <div class="col-md-3">
+                    <i class="fa-solid fa-robot fa-2x"></i>
+                    <p><strong>AI & ML</strong><br>Deep Learning, TensorFlow, Scikit-Learn, XGBoost</p>
+                </div>
+
+                <!-- Data & Visualization -->
+                <div class="col-md-3">
+                    <i class="fa-solid fa-database fa-2x"></i>
+                    <p><strong>Data</strong><br>Pandas, NumPy, Matplotlib, Data Analysis</p>
+                </div>
+
+                <!-- Web Development -->
+                <div class="col-md-3">
+                    <i class="fa-solid fa-laptop-code fa-2x"></i>
+                    <p><strong>Web</strong><br>HTML, CSS, Bootstrap, Selenium</p>
+                </div>
+
+                <!-- IoT & Embedded -->
+                <div class="col-md-3">
+                    <i class="fa-solid fa-microchip fa-2x"></i>
+                    <p><strong>IoT & Embedded</strong><br>Arduino, Raspberry Pi, Embedded Systems</p>
+                </div>
+
+                <!-- Cloud & Networking -->
+                <div class="col-md-3">
+                    <i class="fa-solid fa-cloud fa-2x"></i>
+                    <p><strong>Cloud & Networking</strong><br>IoT Cloud, Huawei HCIA, Telecom Systems</p>
+                </div>
+
+                <!-- Tools -->
+                <div class="col-md-3">
+                    <i class="fa-solid fa-tools fa-2x"></i>
+                    <p><strong>Tools</strong><br>Git, GitHub, VS Code, Jupyter</p>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="col-md-3">
+                    <i class="fa-solid fa-people-group fa-2x"></i>
+                    <p><strong>Soft Skills</strong><br>Leadership, Teamwork, Problem-Solving</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Certifications -->
+    <section id="certifications" class="alt-bg">
+        <div class="container">
+            <h2 class="text-center mb-4" data-en="Certifications" data-ar="الشهادات">Certifications</h2>
+            <div class="row g-3">
+                <div class="col-md-3"><a href="#"><img src="assets/1C.jpeg" class="img-fluid rounded shadow"></a></div>
+                <div class="col-md-3"><a href="#"><img src="assets/2C.jpeg" class="img-fluid rounded shadow"></a></div>
+                <div class="col-md-3"><a href="#"><img src="assets/3C.jpeg" class="img-fluid rounded shadow"></a></div>
+                <div class="col-md-3"><a href="#"><img src="assets/4C.jpeg" class="img-fluid rounded shadow"></a></div>
+                <div class="col-md-3"><a href="#"><img src="assets/5C.jpeg" class="img-fluid rounded shadow"></a></div>
+                <div class="col-md-3"><a href="#"><img src="assets/4.webp" class="img-fluid rounded shadow"></a></div>
+                <div class="col-md-3"><a href="#"><img src="assets/32143412342341.png.webp"
+                            class="img-fluid rounded shadow"></a></div>
+                <div class="col-md-3"><a href="#"><img src="assets/11111.png" class="img-fluid rounded shadow"></a>
+                </div>
+                <div class="col-md-3"><a href="#"><img src="assets/6C.jpeg" class="img-fluid rounded shadow"></a></div>
+            </div>
+        </div>
+    </section>
+    <!-- Services -->
+    <section id="services" class="alt-bg">
+        <div class="container">
+            <h2 class="text-center mb-5" data-en="Services I Provide" data-ar="الخدمات التي أقدّمها">Services I Provide
+            </h2>
+            <div class="row g-4">
+
+                <!-- Service 1 -->
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <i class="fa-solid fa-database fa-2x mb-3 text-primary"></i>
+                        <h5>Web Scraping & Automation</h5>
+                        <p>Extract structured data from websites using Python & Selenium. Build automated pipelines for
+                            business intelligence.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <i class="fa-solid fa-robot fa-2x mb-3 text-primary"></i>
+                        <h5>Machine Learning & AI</h5>
+                        <p>Design, train, and deploy ML models (classification, regression, NLP, CV). Experienced in
+                            TensorFlow & Scikit-Learn.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <i class="fa-solid fa-brain fa-2x mb-3 text-primary"></i>
+                        <h5>Deep Learning Solutions</h5>
+                        <p>Advanced solutions in Computer Vision & Neural Networks. Worked on YOLO, CNNs, and Style
+                            Transfer projects.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <i class="fa-solid fa-microchip fa-2x mb-3 text-primary"></i>
+                        <h5>IoT & Embedded Systems</h5>
+                        <p>Build IoT systems using Arduino, Raspberry Pi, and integrate AI for real-world smart devices.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <i class="fa-solid fa-globe fa-2x mb-3 text-primary"></i>
+                        <h5>Web Development</h5>
+                        <p>Responsive websites with HTML, CSS, Bootstrap & JavaScript. Experience in UI/UX for AI-driven
+                            apps.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="alt-bg">
+        <div class="container">
+            <h2 class="text-center mb-4" data-en="Contact Me" data-ar="تواصل معي">Contact Me</h2>
+            <p class="text-center mb-5"
+                data-en="Let’s collaborate! Reach out for projects, internships, or opportunities."
+                data-ar="خلينا نتعاون! تواصل معي للمشاريع أو التدريب أو الفرص.">
+                Let’s collaborate! Reach out for projects, internships, or opportunities.
+            </p>
+
+            <div class="row g-4 justify-content-center">
+
+                <!-- Contact Form -->
+                <div class="col-md-6">
+                    <form action="https://formspree.io/f/yourFormID" method="POST"
+                        class="contact-form shadow-lg p-4 rounded">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Your Message"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-4 text-center contact-info">
+                    <div class="p-4">
+                        <p><i class="fa-solid fa-envelope fa-lg text-primary"></i><br>
+                            <a href="mailto:mohamedaymanelhalmoushy@gmail.com">mohamedaymanelhalmoushy@gmail.com</a>
+                        </p>
+                        <p><i class="fab fa-linkedin fa-lg text-primary"></i><br>
+                            <a href="https://www.linkedin.com/in/mohamed-el-halmoushy/" target="_blank">LinkedIn</a>
+                        </p>
+                        <p><i class="fab fa-github fa-lg text-primary"></i><br>
+                            <a href="https://github.com/MohamedELHalmoushy" target="_blank">GitHub</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Mohamed Ayman El-Halmoushy | All Rights Reserved
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dark/Light Mode
+        const themeBtn = document.getElementById("themeBtn");
+        themeBtn.addEventListener("click", () => {
+            document.body.dataset.theme = document.body.dataset.theme === "dark" ? "light" : "dark";
+        });
+
+        // Language Switch
+        const langBtn = document.getElementById("langBtn");
+        langBtn.addEventListener("click", () => {
+            const current = langBtn.innerText;
+            const elements = document.querySelectorAll("[data-en]");
+            if (current === "AR") {
+                elements.forEach(el => el.innerText = el.dataset.ar);
+                langBtn.innerText = "EN";
+                document.body.dir = "rtl";
+            } else {
+                elements.forEach(el => el.innerText = el.dataset.en);
+                langBtn.innerText = "AR";
+                document.body.dir = "ltr";
+            }
+        });
+    </script>
+</body>
+
+</html>
