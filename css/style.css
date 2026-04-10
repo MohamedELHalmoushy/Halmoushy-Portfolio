@@ -1,11 +1,4 @@
-/* ============================================================
-   MOHAMED AYMAN | INTELLIGENT SYSTEMS PORTFOLIO
-   Theme: Deep Space Navy + Electric Cyan — AI/ML Aesthetic
-   ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&display=swap');
-
-/* ── CSS Variables ─────────────────────────────────────────── */
 :root {
   --bg-deep:       #020b14;
   --bg-mid:        #040f1a;
@@ -43,7 +36,6 @@
   --transition-slow: all 0.6s cubic-bezier(0.4,0,0.2,1);
 }
 
-/* ── Reset & Base ───────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
@@ -66,13 +58,11 @@ body {
   color: var(--cyan-bright);
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
 ::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--cyan-bright); }
 
-/* ── Typography ─────────────────────────────────────────────── */
 h1, h2, h3, h4, h5 {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
@@ -97,8 +87,6 @@ a {
   transition: var(--transition);
 }
 a:hover { color: #fff; }
-
-/* ── Layout Utilities ───────────────────────────────────────── */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -137,8 +125,6 @@ section { padding: 100px 0; position: relative; }
   background: linear-gradient(90deg, var(--cyan-bright), transparent);
   border-radius: 2px;
 }
-
-/* ── Noise texture overlay ──────────────────────────────────── */
 body::before {
   content: '';
   position: fixed;
@@ -149,7 +135,6 @@ body::before {
   opacity: 0.4;
 }
 
-/* ── Grid background lines ──────────────────────────────────── */
 .grid-bg {
   position: absolute;
   inset: 0;
@@ -160,7 +145,6 @@ body::before {
   pointer-events: none;
 }
 
-/* ── Navbar ─────────────────────────────────────────────────── */
 #navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
