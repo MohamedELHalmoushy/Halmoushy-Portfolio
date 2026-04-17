@@ -113,9 +113,7 @@ Copy a `.cert-card` div block and update the image `src` and title.
 ---
 
 ## 📄 License
-
-MIT — Free to use and adapt.
-
+all copyrights reserved for Mohamed EL-Halmoushy 
 ---
 
-*Built with ❤️ for Mohamed Ayman El-Halmoushy*
+*Built by Mohamed Ayman El-Halmoushy*
